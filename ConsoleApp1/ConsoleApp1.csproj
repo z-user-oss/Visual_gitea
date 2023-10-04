@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="powershell.exe -file "$(SolutionDir)rev.ps1""/>
+    <Exec Command="powershell -ExecutionPolicy Unrestricted $(ProjectDir)rev.ps1 -ProjectDir $(ProjectDir) -TargetPath $(TargetPath)"/>
   </Target>
 
 </Project>
