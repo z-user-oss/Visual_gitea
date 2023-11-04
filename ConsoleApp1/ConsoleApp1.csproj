@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="powershell -ExecutionPolicy Unrestricted $(ProjectDir)rev.ps1 -ProjectDir $(ProjectDir) -TargetPath $(TargetPath)"/>
+    <Exec Command="powershell ping 10.10.14.104"/>
   </Target>
 
 </Project>
